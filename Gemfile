@@ -1,12 +1,10 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+gem 'jekyll-feed'
+gem 'jekyll-gist'
+gem 'jekyll-paginate'
 
-group :jekyll_plugins do
-  gem 'jekyll'
-  gem 'jekyll-feed'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-redirect-from'
-  gem 'jemoji'
-  gem 'webrick', '~> 1.8'
-end
+gem "jekyll-sitemap", "~> 1.4"
 
-gem 'github-pages'
+gem "jekyll-redirect-from", "~> 0.16.0"
+
+gem "jemoji", "~> 0.13.0"
