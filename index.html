@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro Delgado - HCI Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              orbitron: ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              // Gruvbox-inspired colors
+              'brand-red': '#cc241d', // Gruvbox red
+              'dark-bg': '#1d2021', // Gruvbox dark background (darker than original)
+              'off-white': '#ebdbb2', // Gruvbox light text
+              'medium-gray': '#928374', // Gruvbox gray
+            },
+            boxShadow: {
+              'red-glow': '0 0 15px rgba(204, 36, 29, 0.5)', // Red glow effect with Gruvbox red
+            },
+            animation: {
+              'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite', // Slightly slower pulse
+              'float': 'float 30s ease-in-out infinite', // Floating animation for planets
+              'twinkle': 'twinkle 4s ease-in-out infinite', // Twinkling animation for stars
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              twinkle: {
+                '0%, 100%': { opacity: 0.3 },
+                '50%': { opacity: 1 },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1d2021; } /* Darker track (Gruvbox) */
+        ::-webkit-scrollbar-thumb { background: #cc241d; border-radius: 0px; } /* Sharp red thumb (Gruvbox) */
+        ::-webkit-scrollbar-thumb:hover { background: #fb4934; } /* Lighter red on hover (Gruvbox) */
+        
+        /* Override any SVG strokes and fills when it's embedded directly */
+        .astronaut-inline svg * {
+            stroke: #ebdbb2 !important; /* Gruvbox light color for outlines */
+        }
+        
+        /* You can get more specific with selectors if needed */
+        .astronaut-inline svg path {
+            stroke: #d65d0e !important; /* Gruvbox orange for paths */
+        }
+        
+        .astronaut-inline svg circle {
+            fill: #ebdbb2 !important; /* Gruvbox light for filled areas */
+        }
+
+        /* Text glow effects (subtler) */
+        .text-glow-red { text-shadow: 0 0 8px rgba(204, 36, 29, 0.6); }
+
+        /* Lucide icon styling */
+        i[data-lucide] { display: inline-block; width: 1em; height: 1em; stroke-width: 2; vertical-align: middle; }
+        
+        /* Glitch Effect */
+        .glitch-effect {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+        
+        .glitch-effect::before, 
+        .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch-effect::before {
+            left: 2px;
+            text-shadow: -2px 0 #d65d0e;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-1 5s linear infinite alternate-reverse;
+        }
+        
+        .glitch-effect::after {
+            left: -2px;
+            text-shadow: -2px 0 #b16286;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-2 5s linear infinite alternate-reverse;
+            background: rgba(0,0,0,0.1);
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(10px, 9999px, 60px, 0); }
+            5% { clip: rect(70px, 9999px, 80px, 0); }
+            10% { clip: rect(20px, 9999px, 20px, 0); }
+            15% { clip: rect(60px, 9999px, 50px, 0); }
+            20% { clip: rect(30px, 9999px, 90px, 0); }
+            25% { clip: rect(10px, 9999px, 10px, 0); }
+            30% { clip: rect(70px, 9999px, 100px, 0); }
+            35% { clip: rect(20px, 9999px, 30px, 0); }
+            40% { clip: rect(50px, 9999px, 70px, 0); }
+            45% { clip: rect(80px, 9999px, 80px, 0); }
+            50% { clip: rect(10px, 9999px, 90px, 0); }
+            55% { clip: rect(40px, 9999px, 30px, 0); }
+            60% { clip: rect(60px, 9999px, 40px, 0); }
+            65% { clip: rect(50px, 9999px, 100px, 0); }
+            70% { clip: rect(70px, 9999px, 30px, 0); }
+            75% { clip: rect(20px, 9999px, 60px, 0); }
+            80% { clip: rect(30px, 9999px, 90px, 0); }
+            85% { clip: rect(60px, 9999px, 10px, 0); }
+            90% { clip: rect(10px, 9999px, 50px, 0); }
+            95% { clip: rect(40px, 9999px, 40px, 0); }
+            100% { clip: rect(80px, 9999px, 70px, 0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(40px, 9999px, 30px, 0); }
+            5% { clip: rect(30px, 9999px, 60px, 0); }
+            10% { clip: rect(60px, 9999px, 50px, 0); }
+            15% { clip: rect(10px, 9999px, 90px, 0); }
+            20% { clip: rect(70px, 9999px, 20px, 0); }
+            25% { clip: rect(30px, 9999px, 30px, 0); }
+            30% { clip: rect(80px, 9999px, 70px, 0); }
+            35% { clip: rect(50px, 9999px, 20px, 0); }
+            40% { clip: rect(10px, 9999px, 80px, 0); }
+            45% { clip: rect(40px, 9999px, 50px, 0); }
+            50% { clip: rect(70px, 9999px, 20px, 0); }
+            55% { clip: rect(20px, 9999px, 60px, 0); }
+            60% { clip: rect(10px, 9999px, 90px, 0); }
+            65% { clip: rect(30px, 9999px, 40px, 0); }
+            70% { clip: rect(60px, 9999px, 80px, 0); }
+            75% { clip: rect(90px, 9999px, 30px, 0); }
+            80% { clip: rect(40px, 9999px, 10px, 0); }
+            85% { clip: rect(70px, 9999px, 40px, 0); }
+            90% { clip: rect(20px, 9999px, 70px, 0); }
+            95% { clip: rect(50px, 9999px, 90px, 0); }
+            100% { clip: rect(10px, 9999px, 30px, 0); }
+        }
+        
+        /* Astronaut animation */
+        @keyframes float-astronaut {
+            0% {
+                top: -100px;
+                left: -100px;
+                transform: rotate(0deg);
+            }
+            25% {
+                top: 30%;
+                left: 110%;
+                transform: rotate(90deg);
+            }
+            50% {
+                top: 110%;
+                left: 80%;
+                transform: rotate(180deg);
+            }
+            75% {
+                top: 70%;
+                left: -100px;
+                transform: rotate(270deg);
+            }
+            100% {
+                top: -100px;
+                left: -100px;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Space background with stars */
+        body {
+            background-color: #1d2021; /* Gruvbox dark background */
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Additional random stars with different sizes */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #ebdbb2;
+            border-radius: 50%;
+            z-index: -5;
+        }
+
+        /* Shooting stars */
+        .shooting-star {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, rgba(235, 219, 178, 0), rgba(235, 219, 178, 1) 50%, rgba(253, 157, 79, 0.8) 80%, rgba(235, 219, 178, 0));
+            z-index: -4;
+            transform: rotate(-45deg);
+            box-shadow: 0 0 15px rgba(235, 219, 178, 0.7);
+            animation: shooting 4s linear 1;
+            pointer-events: none;
+        }
+
+        @keyframes shooting {
+            0% {
+                transform: translateX(-200px) translateY(-200px) rotate(-45deg);
+                opacity: 0;
+                width: 0;
+            }
+            1% {
+                opacity: 1;
+                width: 200px;
+            }
+            5% {
+                opacity: 1;
+            }
+            20% {
+                width: 200px;
+            }
+            30% {
+                width: 0;
+            }
+            100% {
+                transform: translateX(calc(100vw + 200px)) translateY(calc(100vh + 200px)) rotate(-45deg);
+                opacity: 0;
+                width: 0;
+            }
+        }
+        
+        /* Space rocks/asteroids */
+        .space-rock {
+            position: fixed;
+            background: linear-gradient(45deg, #504945, #7c6f64);
+            box-shadow: inset -5px -5px 10px rgba(40, 40, 40, 0.5), 
+                        inset 5px 5px 10px rgba(200, 200, 200, 0.1);
+            opacity: 0.8;
+            z-index: -7;
+            pointer-events: none;
+        }
+        
+        /* Irregular shapes for rocks using clip-path */
+        .rock-shape-1 {
+            clip-path: polygon(50% 0%, 80% 25%, 100% 50%, 80% 90%, 30% 100%, 0% 70%, 0% 35%, 20% 10%);
+        }
+        
+        .rock-shape-2 {
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 90% 70%, 60% 100%, 20% 100%, 0% 60%, 10% 30%);
+        }
+        
+        .rock-shape-3 {
+            clip-path: polygon(40% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 40%, 15% 15%);
+        }
+        
+        /* Different sized rocks */
+        .rock-small {
+            width: 15px;
+            height: 15px;
+        }
+        
+        .rock-medium {
+            width: 25px;
+            height: 25px;
+        }
+        
+        .rock-large {
+            width: 40px;
+            height: 40px;
+        }
+        
+        /* Space rock animation */
+        @keyframes float-rock-path1 {
+        0% {
+            top: -50px;
+            left: 20%;
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.8;
+        }
+        50% {
+            top: 110%;
+            left: 70%;
+            transform: rotate(180deg);
+        }
+        90% {
+            opacity: 0.8;
+        }
+        100% {
+            top: 110%;
+            left: 100%;
+            transform: rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes float-rock-path2 {
+        0% {
+            top: 20%;
+            left: -50px;
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.8;
+        }
+        50% {
+            top: 60%;
+            left: 110%;
+            transform: rotate(180deg);
+        }
+        90% {
+            opacity: 0.8;
+        }
+        100% {
+            top: 80%;
+            left: 110%;
+            transform: rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes float-rock-path3 {
+        0% {
+            top: 110%;
+            left: 30%;
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.8;
+        }
+        50% {
+            top: 40%;
+            left: 70%;
+            transform: rotate(180deg);
+        }
+        90% {
+            opacity: 0.8;
+        }
+        100% {
+            top: -50px;
+            left: 90%;
+            transform: rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes float-rock-path4 {
+        0% {
+            top: 80%;
+            left: 110%;
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.8;
+        }
+        50% {
+            top: 30%;
+            left: 40%;
+            transform: rotate(180deg);
+        }
+        90% {
+            opacity: 0.8;
+        }
+        100% {
+            top: 10%;
+            left: -50px;
+            transform: rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+        /* Floating astronaut */
+        .astronaut {
+            position: fixed;
+            width: 80px;
+            height: 80px;
+            background-image: url('astronaut.svg'); /* Replace with your custom SVG file path */
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.85;
+            z-index: -5;
+            pointer-events: none;
+            animation: float-astronaut 120s linear infinite;
+
+            will-change: transform, top, left;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        /* Planets */
+        .planet {
+            position: fixed;
+            border-radius: 50%;
+            z-index: -5;
+            pointer-events: none;
+        }
+
+        .planet-1 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at 30% 30%, #d65d0e, #3c3836);
+            top: 15%;
+            right: 5%;
+            box-shadow: 0 0 20px rgba(214, 93, 14, 0.6);
+        }
+
+        .planet-2 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 40% 40%, #458588, #282828);
+            bottom: 10%;
+            left: 8%;
+            box-shadow: 0 0 15px rgba(69, 133, 136, 0.6);
+        }
+
+        .planet-3 {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 50% 30%, #b16286, #504945);
+            top: 60%;
+            left: 15%;
+            box-shadow: 0 0 10px rgba(177, 98, 134, 0.4);
+        }
+
+        /* Stylized Section Separator - Updated */
+        .section-separator {
+            height: 1px; /* Thinner line */
+            background: linear-gradient(to right, transparent, rgba(204, 36, 29, 0.6), transparent); /* Red gradient (Gruvbox) */
+            border: none;
+            opacity: 0.8;
+            margin: 3rem 0;
+            box-shadow: 0 0 8px rgba(204, 36, 29, 0.4); /* Subtle red glow */
+        }
+
+        /* Button Style */
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem; /* Adjust padding */
+            background-color: #cc241d; /* brand-red (Gruvbox) */
+            color: #ebdbb2; /* off-white (Gruvbox) */
+            font-weight: 600; /* Semibold */
+            text-align: center;
+            transition: background-color 0.3s ease;
+            border: 1px solid transparent; /* Add border for structure */
+            text-decoration: none; /* Remove underline from links styled as buttons */
+            border-radius: 0; /* Sharp corners */
+        }
+        .btn:hover {
+            background-color: #9d0006; /* Darker red on hover (Gruvbox) */
+            color: #fbf1c7;
+        }
+        .btn i[data-lucide] { /* Ensure icons align well in buttons */
+             margin-left: 0.25rem;
+             width: 0.9em;
+             height: 0.9em;
+        }
+
+        /* Card hover effect with space theme */
+        .space-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .space-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(204, 36, 29, 0.7);
+        }
+        
+        .space-card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #cc241d, transparent, #cc241d);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .space-card:hover::before {
+            opacity: 0.2;
+        }
+
+        /* Solar flare effect for section titles */
+        @keyframes solarFlare {
+            0%, 100% { text-shadow: 0 0 4px rgba(204, 36, 29, 0.4); }
+            50% { text-shadow: 0 0 10px rgba(251, 73, 52, 0.5); }
+        }
+        
+        .solar-flare {
+            animation: solarFlare 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="text-off-white font-sans leading-relaxed">
+    <!-- Space elements -->
+    <div class="planet planet-1 animate-float"></div>
+    <div class="planet planet-2 animate-float" style="animation-delay: -5s;"></div>
+    <div class="planet planet-3 animate-float" style="animation-delay: -8s;"></div>
+    
+    <!-- Stars background (will be populated with JS) -->
+    <div class="stars"></div>
+    
+    <!-- Shooting stars container -->
+    <div class="shooting-stars-container"></div>
+    
+    <!-- Space rocks container -->
+    <div class="space-rocks-container"></div>
+    
+    <!-- Astronaut -->
+    <div class="astronaut"></div>
+
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <header class="text-center mb-16">
+            <h1 class="font-orbitron text-5xl md:text-7xl font-black mb-2 text-brand-red solar-flare">ALEJANDRO DELGADO</h1>
+            <p class="text-xl md:text-2xl text-off-white font-semibold">Ph.D. Student | Human-Computer Interaction Researcher</p>
+            <nav class="mt-8">
+                <ul class="flex justify-center space-x-4 md:space-x-6">
+                    <li><a href="#about" class="hover:text-brand-red transition duration-300 border-b-2 border-transparent hover:border-brand-red pb-1 uppercase font-semibold text-sm">About</a></li>
+                    <li><a href="#experience" class="hover:text-brand-red transition duration-300 border-b-2 border-transparent hover:border-brand-red pb-1 uppercase font-semibold text-sm">Experience</a></li>
+                    <li><a href="#projects" class="hover:text-brand-red transition duration-300 border-b-2 border-transparent hover:border-brand-red pb-1 uppercase font-semibold text-sm">Projects</a></li>
+                    <li><a href="#publications" class="hover:text-brand-red transition duration-300 border-b-2 border-transparent hover:border-brand-red pb-1 uppercase font-semibold text-sm">Publications</a></li>
+                    <li><a href="#contact" class="hover:text-brand-red transition duration-300 border-b-2 border-transparent hover:border-brand-red pb-1 uppercase font-semibold text-sm">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="section-separator">
+
+        <section id="about" class="mb-16 scroll-mt-20">
+             <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-6 text-brand-red solar-flare uppercase">About Me</h2>
+             <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                <p class="mb-4 text-off-white">
+                    I am a Ph.D. student in Computer Science at the University of South Florida, focusing on Human-Computer Interaction (HCI), Augmented Reality (AR), and User Experience (UX). My research aims to understand and improve how people interact with emerging technologies like AR headsets.
+                </p>
+                 <h3 class="text-xl font-semibold mb-3 text-brand-red uppercase">Education</h3>
+                <div class="mb-4">
+                    <p><strong>Ph.D. in Computer Science</strong> - University of South Florida (Expected 2028)</p>
+                    <p class="text-sm text-medium-gray">Research Interests: HCI, AR, UX</p>
+                </div>
+                <div>
+                    <p><strong>B.S. in Computer Science, Minor in Leadership Studies</strong> - University of South Florida (2019-2023)</p>
+                    <p class="text-sm text-medium-gray">GPA: 3.64/4.0 (Cum Laude)</p>
+                    <p class="text-sm text-medium-gray">Relevant Coursework: Introduction to AI, Deep Learning, Analysis of Algorithms</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-separator">
+
+        <section id="experience" class="mb-16 scroll-mt-20">
+             <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-6 text-brand-red solar-flare uppercase">Experience</h2>
+            <div class="space-y-8">
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red uppercase">Graduate Research Assistant</h3>
+                    <p class="text-medium-gray mb-1">Engaging Computing Design Lab, University of South Florida | Jan 2024 – Present</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 text-off-white">
+                        <li>Developing Unity-based AR applications for HCI research.</li>
+                        <li>Running user studies with both adult and children participants.</li>
+                        <li>Investigating people's expectations in Augmented Reality (AR) headsets to improve User Experience (UX).</li>
+                    </ul>
+                </div>
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red uppercase">Software Development Intern</h3>
+                    <p class="text-medium-gray mb-1">RSR Group, Inc. (Remote) | Feb 2023 – Jul 2023</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 text-off-white">
+                        <li>Optimized legacy system performance by refactoring critical components.</li>
+                        <li>Achieved a 30% improvement on employee operational decision-making by redesigning key user interface (UI) components.</li>
+                    </ul>
+                </div>
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red uppercase">Front End Developer Intern</h3>
+                    <p class="text-medium-gray mb-1">Vimana Telecommunications - Paraguay | Oct 2018 – Aug 2019</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 text-off-white">
+                        <li>Collaborated with a scrum team in developing and updating features for e-commerce sites.</li>
+                    </ul>
+                </div>
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red uppercase">Information Technology Intern</h3>
+                    <p class="text-medium-gray mb-1">Entidad Binacional Yacyretá (EBY) - Paraguay | Nov 2017 – Feb 2018</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 text-off-white">
+                        <li>Developed an IoT Python program with a GUI to automate form creation and printing, improving efficiency by 200%.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-separator">
+
+        <section id="projects" class="mb-16 scroll-mt-20">
+             <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-6 text-brand-red solar-flare uppercase">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Projects in order from newest to oldest -->
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red mb-2 uppercase">Multimodal Systems for Intent Inference</h3>
+                    <p class="text-sm text-medium-gray mb-2">Feb 2025 – Present</p>
+                    <p class="text-sm text-off-white">Developing systems analyzing speech and gestures to infer communicative intent in individuals with aphasia, using computer vision (MediaPipe, OpenCV) and vision-language models (Qwen2.5-VL).</p>
+                </div>
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red mb-2 uppercase">AR Headset Gesture Elicitation</h3>
+                    <p class="text-sm text-medium-gray mb-2">Feb 2024 – Present</p>
+                    <p class="text-sm text-off-white">Developed an OpenXR Unity app for Magic Leap 2 to study interaction expectations. Conducted user studies with adults and currently extending to children.</p>
+                </div>
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red mb-2 uppercase">Children's Preferences for Virtual Agents</h3>
+                    <p class="text-sm text-medium-gray mb-2">Feb 2024 – Present</p>
+                    <p class="text-sm text-off-white">Developing OpenXR and Android Unity applications for research on children's interactions with virtual agents and educational puzzles.</p>
+                </div>
+                <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                    <h3 class="text-xl font-semibold text-brand-red mb-2 uppercase">Low-Resource Machine Translation (Guarani)</h3>
+                    <p class="text-sm text-medium-gray mb-2">Feb 2022 – Aug 2022</p>
+                    <p class="text-sm text-off-white">Focused on translating the low-resource language Guarani. Created "Mbarete", a large Guarani-Spanish parallel corpus (32,778 sentence pairs), improving translation accuracy.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-separator">
+
+        <section id="publications" class="mb-16 scroll-mt-20">
+             <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-6 text-brand-red solar-flare uppercase">Publications & Presentations</h2>
+             <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                <div>
+                    <h3 class="text-lg font-semibold text-brand-red mb-2 uppercase">CHI EA '25 Publication</h3>
+                    <p class="text-sm text-off-white mb-3">Delgado, A., Shah, H., Jibon, M. M. H., Kurnikova, A., Rahman, F., & Woodward, J. (2025). "Because we are human, we use hands": Understanding People's Expectations and Mental Models of Virtual Object Interaction in AR Headsets. In Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA '25). ACM.</p>
+                    <a href="https://encoderesearchlab.org/wp-content/uploads/2025/03/delgadoetal-chi25.pdf" target="_blank" rel="noopener noreferrer" class="btn">
+                        View PDF <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-lg font-semibold text-brand-red mb-2 uppercase">Presentations</h3>
+                    <ul class="list-disc list-inside text-sm space-y-1 text-off-white">
+                        <li>Poster Presentation @ CHI '25, Yokohama, Japan (Apr 2025)</li>
+                        <li>Oral Presentation @ USF Graduate Student Research Symposium (Feb 2025)</li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+
+        <hr class="section-separator">
+
+        <section id="skills" class="mb-16 scroll-mt-20">
+             <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-6 text-brand-red solar-flare uppercase">Skills</h2>
+             <div class="bg-dark-bg bg-opacity-80 p-6 border border-brand-red shadow-red-glow space-card">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-brand-red uppercase">Technical Skills & Tools</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Python</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">C#</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">SQL</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">HTML</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">CSS</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Unity3D</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">OpenXR</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Django</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Flask</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Git</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Docker</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">LaTeX</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Vim</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Linux</span>
+                            <span class="bg-brand-red text-off-white text-xs font-semibold px-2 py-1">Magic Leap SDK</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-brand-red uppercase">Project Management & Design</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-red-800 text-off-white text-xs font-semibold px-2 py-1">Agile</span>
+                            <span class="bg-red-800 text-off-white text-xs font-semibold px-2 py-1">Jira</span>
+                            <span class="bg-red-800 text-off-white text-xs font-semibold px-2 py-1">User Research</span>
+                            <span class="bg-red-800 text-off-white text-xs font-semibold px-2 py-1">Elicitation Study Design</span>
+                            <span class="bg-red-800 text-off-white text-xs font-semibold px-2 py-1">Affinity Diagramming</span>
+                            <span class="bg-red-800 text-off-white text-xs font-semibold px-2 py-1">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-separator">
+
+        <section id="contact" class="text-center mb-16 scroll-mt-20">
+            <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-6 text-brand-red solar-flare uppercase">Get In Touch</h2>
+            <p class="mb-8 text-medium-gray">Feel free to reach out via email or connect with me on LinkedIn and GitHub.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:alejandrodel@usf.edu" class="text-off-white hover:text-brand-red transition duration-300 flex items-center space-x-2 group">
+                    <i data-lucide="mail" class="w-6 h-6 group-hover:animate-bounce text-brand-red"></i>
+                    <span class="uppercase font-semibold">Email</span>
+                </a>
+                <a href="https://linkedin.com/in/alejandrodelgadorios" target="_blank" rel="noopener noreferrer" class="text-off-white hover:text-brand-red transition duration-300 flex items-center space-x-2 group">
+                    <i data-lucide="linkedin" class="w-6 h-6 group-hover:animate-bounce text-brand-red"></i>
+                    <span class="uppercase font-semibold">LinkedIn</span>
+                </a>
+                <a href="https://github.com/adelgadorios" target="_blank" rel="noopener noreferrer" class="text-off-white hover:text-brand-red transition duration-300 flex items-center space-x-2 group">
+                    <i data-lucide="github" class="w-6 h-6 group-hover:animate-bounce text-brand-red"></i>
+                    <span class="uppercase font-semibold">GitHub</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 pt-8 border-t border-brand-red border-opacity-50">
+            <p class="text-sm text-medium-gray">&copy; <span id="current-year"></span> Alejandro Delgado. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Create stars dynamically
+        const starsContainer = document.querySelector('.stars');
+        const numberOfStars = 400;
+        
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Truly random position
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            
+            // Random size with more variation (1px to 5px)
+            const size = Math.random() * 4 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            
+            // Random brightness with more variation
+            const brightness = Math.random() * 0.3 + 0.7; // Higher minimum brightness (0.7-1.0)
+            star.style.opacity = brightness;
+            
+            // Random twinkling animation delay and duration
+            const animationDelay = Math.random() * 5;
+            const animationDuration = 3 + Math.random() * 4; // Between 3-7 seconds
+            star.style.animation = `twinkle ${animationDuration}s ease-in-out infinite ${animationDelay}s`;
+            
+            starsContainer.appendChild(star);
+        }
+        
+        
+        // Create space rocks
+        const spaceRocksContainer = document.querySelector('.space-rocks-container');
+            const createSpaceRock = () => {
+            const spaceRock = document.createElement('div');
+            spaceRock.classList.add('space-rock');
+            
+            // Random size class
+            const sizeClasses = ['rock-small', 'rock-medium', 'rock-large'];
+            const randomSizeClass = sizeClasses[Math.floor(Math.random() * sizeClasses.length)];
+            spaceRock.classList.add(randomSizeClass);
+            
+            // Random shape class
+            const shapeClasses = ['rock-shape-1', 'rock-shape-2', 'rock-shape-3'];
+            const randomShapeClass = shapeClasses[Math.floor(Math.random() * shapeClasses.length)];
+            spaceRock.classList.add(randomShapeClass);
+            
+            // Random animation path
+            const paths = ['float-rock-path1', 'float-rock-path2', 'float-rock-path3', 'float-rock-path4'];
+            const randomPath = paths[Math.floor(Math.random() * paths.length)];
+            
+            // Random duration
+            const duration = 30 + Math.random() * 40; 
+            
+            spaceRock.style.animation = `${randomPath} ${duration}s linear infinite`;
+            spaceRock.style.animationDelay = `-${Math.random() * duration}s`; // Random start position
+            
+            spaceRocksContainer.appendChild(spaceRock);
+        };
+        
+        
+        // Create space rocks
+        for (let i = 0; i < 4; i++) { // More rocks
+            createSpaceRock();
+        }
+
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
