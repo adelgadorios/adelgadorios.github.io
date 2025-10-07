@@ -54,14 +54,17 @@
 
     <div class="container mx-auto px-4 py-8 max-w-4xl">
         <header class="text-center mb-12">
+            <img src="pfp.png" alt="Alejandro Delgado Profile Picture" class="block md:hidden w-32 h-32 rounded-full mx-auto object-cover border-4 border-border-color mb-4">
+            
             <h1 class="text-5xl md:text-6xl font-bold mb-2">Alejandro Delgado</h1>
             <p class="text-xl md:text-2xl text-secondary-text">Ph.D. Student & Human-Computer Interaction Researcher</p>
-            <nav class="mt-6">
+            
+            <nav class="mt-8">
                 <ul class="flex justify-center space-x-4 md:space-x-6 text-sm uppercase font-semibold text-secondary-text">
                     <li><a href="#about" class="hover:text-primary transition duration-300">About</a></li>
-                    <li><a href="#experience" class="hover:text-primary transition duration-300">Experience</a></li>
-                    <li><a href="#projects" class="hover:text-primary transition duration-300">Projects</a></li>
                     <li><a href="#publications" class="hover:text-primary transition duration-300">Publications</a></li>
+                    <li><a href="#projects" class="hover:text-primary transition duration-300">Projects</a></li>
+                    <li><a href="#experience" class="hover:text-primary transition duration-300">Experience</a></li>
                     <li><a href="#contact" class="hover:text-primary transition duration-300">Contact</a></li>
                 </ul>
             </nav>
@@ -70,74 +73,24 @@
         <section id="about" class="mb-12 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">About Me</h2>
             <div class="bg-white p-6 rounded-lg shadow-sm">
-                <p class="mb-4">
-                    I am a Ph.D. student in Computer Science at the University of South Florida, specializing in Human-Computer Interaction (HCI). My research focuses on understanding and improving how people interact with emerging technologies like Augmented Reality headsets. I am passionate about conducting foundational user research to build more intuitive and effective mixed-reality experiences.
-                </p>
-                <h3 class="text-lg font-semibold mb-3 text-primary">Education</h3>
-                <div class="mb-4">
-                    <p><strong>Ph.D. in Computer Science</strong> - University of South Florida (Expected 2028)</p>
-                    <p class="text-sm text-secondary-text">Research Interests: Human-Computer Interaction, Augmented Reality, User Experience</p>
-                </div>
-                <div>
-                    <p><strong>B.S. in Computer Science, Minor in Leadership Studies</strong> - University of South Florida (2019-2023)</p>
-                    <p class="text-sm text-secondary-text">Graduated Cum Laude (GPA: 3.64/4.0)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="mb-12 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Experience</h2>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold text-dark-text">Graduate Research Assistant, HCI</h3>
-                    <p class="text-secondary-text mb-2">Engaging Computing Design Lab, University of South Florida | Jan 2024 – Present</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Leading foundational user research to understand interaction models for future Augmented Reality (AR) applications.</li>
-                        <li>Conducting mixed-methods user studies (gesture elicitation, affinity diagramming) with diverse populations.</li>
-                        <li>Translating user data into actionable design recommendations and conceptual models for improving AR user experience (UX).</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold text-dark-text">Software Development Intern</h3>
-                    <p class="text-secondary-text mb-2">RSR Group, Inc. (Remote) | Feb 2023 – Jul 2023</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Led a UI/UX overhaul of an internal tool, redesigning critical interface components to improve usability and workflow efficiency.</li>
-                        <li>Improved employee decision-making time by 30% through a user-centered design and development process.</li>
-                    </ul>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold text-dark-text">Front End Developer Intern</h3>
-                    <p class="text-secondary-text mb-2">Vimana Telecommunications, Paraguay | Oct 2018 – Aug 2019</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Developed the front end for a full-stack e-commerce bartering platform, focusing on creating an intuitive and responsive user interface.</li>
-                         <li>Designed and implemented key user flows, including registration, product listing, and a multi-step trade negotiation process.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="projects" class="mb-12 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Research Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">Elicitation Study of Children's AR Interaction Models</h3>
-                    <p class="text-sm text-secondary-text mb-2">Sept 2024 – Present</p>
-                    <p class="text-sm">Led a study with 20 children (9-12) to build a conceptual model of their AR interaction preferences, revealing unique behaviors like narrative creation and whole-body interaction.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">Elicitation Study of Adult AR Interaction Preferences</h3>
-                    <p class="text-sm text-secondary-text mb-2">Feb 2024 – Dec 2024</p>
-                    <p class="text-sm">Conducted a study with 30 adults to quantify AR interaction preferences, analyzing 1,000+ interactions to identify common patterns and novel gestures.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">Applied AI for Clinical Assessment</h3>
-                    <p class="text-sm text-secondary-text mb-2">Feb 2025 – Present</p>
-                    <p class="text-sm">Developing a multimodal system using Computer Vision (MediaPipe) and NLP to infer communicative intent from the speech and gestures of individuals with aphasia.</p>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">Low-Resource Machine Translation</h3>
-                    <p class="text-sm text-secondary-text mb-2">Feb 2022 – Aug 2022</p>
-                    <p class="text-sm">Created "Mbarete," the largest Guarani-Spanish parallel corpus (32k+ sentences) to improve machine translation for a low-resource language.</p>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-grow">
+                        <p class="mb-4">
+                            Ph.D. student in Human-Computer Interaction with a focus on Augmented Reality. Experienced in leading end-to-end user research to discover, invent, and build novel user experiences at scale. Passionate about translating foundational research on user interaction models into intuitive and effective mixed-reality applications.
+                        </p>
+                        <h3 class="text-lg font-semibold mb-3 text-primary">Education</h3>
+                        <div class="mb-4">
+                            <p><strong>Ph.D. in Computer Science</strong> - University of South Florida (Expected 2028)</p>
+                            <p class="text-sm text-secondary-text">Research Interests: Human-Computer Interaction, Augmented Reality, User Experience</p>
+                        </div>
+                        <div>
+                            <p><strong>B.S. in Computer Science, Minor in Leadership Studies</strong> - University of South Florida (2019-2023)</p>
+                            <p class="text-sm text-secondary-text">Graduated Cum Laude (GPA: 3.64/4.0)</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block flex-shrink-0">
+                        <img src="pfp_full.png" alt="Alejandro Delgado" class="h-80 w-auto rounded-lg object-cover shadow-sm">
+                    </div>
                 </div>
             </div>
         </section>
@@ -162,6 +115,98 @@
                 </div>
             </div>
         </section>
+
+        <section id="projects" class="mb-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Research Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
+                    <h3 class="text-lg font-semibold mb-1">Elicitation Study of Children's AR Interaction Models</h3>
+                    <p class="text-sm text-secondary-text mb-2">Sept 2024 – Present</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Led an open-ended elicitation study with 20 children (ages 9-12) to investigate their interaction preferences with virtual objects in AR headsets.</li>
+                        <li>Constructed a conceptual model of children's expectations, revealing preferences for whole-body interaction and the use of external objects, in contrast to adult models.</li>
+                        <li>Analyzed 663 interaction proposals using qualitative coding and affinity diagramming, uncovering that children create narratives to contextualize their interactions.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
+                    <h3 class="text-lg font-semibold mb-1">Elicitation Study of Adult AR Interaction Preferences</h3>
+                    <p class="text-sm text-secondary-text mb-2">Feb 2024 – Dec 2024</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Designed and conducted an elicitation study with 30 adults to discover natural interaction preferences for 17 common virtual object manipulations in AR.</li>
+                        <li>Quantified and analyzed 1,017 interactions, finding that while hand gestures were the primary choice (82%), 52% of secondary choices involved a modality switch (e.g., to voice).</li>
+                        <li>Identified novel interaction paradigms not supported by current commercial headsets, including thinking, air-blowing, and air-drawing.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
+                    <h3 class="text-lg font-semibold mb-1">Applied AI for Clinical Assessment</h3>
+                    <p class="text-sm text-secondary-text mb-2">Feb 2025 – Present</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Developing a multimodal AI system to analyze speech and gestures, aiming to infer communicative intent in individuals with aphasia.</li>
+                        <li>Engineering a computer vision pipeline with MediaPipe to detect and classify co-speech gestures from the AphasiaBank video dataset.</li>
+                        <li>Integrating a vision-language model (Qwen2.5-VL) to perform multimodal inference and generate annotated transcripts.</li>
+                    </ul>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
+                    <h3 class="text-lg font-semibold mb-1">AR Virtual Agent Study Platform</h3>
+                    <p class="text-sm text-secondary-text mb-2">Oct 2024 – Present</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Built a Unity AR application to investigate children's perceptions of virtual agents during collaborative tasks.</li>
+                        <li>Implemented eye tracking-driven agent behaviors and a headset-tablet communication system for synchronized data collection.</li>
+                        <li>Developed spatial placement algorithms using ARFoundation for automatic agent positioning.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-12 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Experience</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark-text">Graduate Research Assistant, HCI</h3>
+                            <p class="text-secondary-text mb-2">
+                                <a href="https://encoderesearchlab.org/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">
+                                    Engaging Computing Design Lab
+                                </a>, USF | Jan 2024 – Present
+                            </p>
+                        </div>
+                        <a href="https://encoderesearchlab.org/" target="_blank" rel="noopener noreferrer" class="md:ml-4 flex-shrink-0 mt-2 md:mt-0 self-center md:self-auto">
+                            <img src="encode_logo.png" alt="EnCoDe Lab Logo" class="h-12 w-auto transition hover:opacity-80">
+                        </a>
+                    </div>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Leading foundational user research to understand interaction models for future Augmented Reality applications.</li>
+                        <li>Conducting mixed-methods user studies (gesture elicitation, affinity diagramming) with diverse populations.</li>
+                        <li>Translating user data into actionable design recommendations for improving AR user experience (UX).</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-dark-text">Software Development Intern</h3>
+                    <p class="text-secondary-text mb-2">RSR Group, Inc. (Remote) | Feb 2023 – Jul 2023</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Led a UI/UX overhaul of an internal tool, redesigning interface components to improve usability.</li>
+                        <li>Improved employee decision-making time by 30% through a user-centered redesign process.</li>
+                    </ul>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-dark-text">Front End Developer Intern</h3>
+                    <p class="text-secondary-text mb-2">Vimana Telecommunications, Paraguay | Oct 2018 – Aug 2019</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Developed the front-end for a full-stack e-commerce bartering platform.</li>
+                        <li>Designed and implemented key user flows, including registration, product listing, and trade negotiation.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-dark-text">Information Technology Intern</h3>
+                    <p class="text-secondary-text mb-2">Entidad Binacional Yacyretá (EBY), Paraguay | Nov 2017 – Feb 2018</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Developed a workflow automation app using Python to replace a manual, paper-based process.</li>
+                        <li>Provided technical training and support to staff, ensuring smooth adoption of the new tool.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
         
         <section id="contact" class="text-center mb-12 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
@@ -176,7 +221,7 @@
                 <a href="https://github.com/adelgadorios" target="_blank" rel="noopener noreferrer" class="text-secondary-text hover:text-primary transition duration-300">
                     <i data-lucide="github" class="w-6 h-6"></i>
                 </a>
-                 <a href="https://scholar.google.com/citations?hl=en&user=lr4-qTwAAAAJ" target="_blank" rel="noopener noreferrer" class="text-secondary-text hover:text-primary transition duration-300">
+                 <a href="https://scholar.google.com/citations?user=lr4-qTwAAAAJ" target="_blank" rel="noopener noreferrer" class="text-secondary-text hover:text-primary transition duration-300">
                     <i data-lucide="graduation-cap" class="w-6 h-6"></i>
                 </a>
             </div>
