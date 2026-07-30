@@ -1,241 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alejandro Delgado - HCI Researcher</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              'primary': '#0d6efd', // Professional Blue
-              'primary-dark': '#0a58ca',
-              'light-bg': '#f8f9fa', // Off-white background
-              'dark-text': '#212529', // Dark gray for text
-              'secondary-text': '#6c757d', // Lighter gray for subtext
-              'border-color': '#dee2e6', // Subtle border color
-            },
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alejandro Delgado is a Human–Computer Interaction researcher specializing in mixed-methods user research, augmented reality, and multimodal AI.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Alejandro Delgado | HCI & User Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            ink: '#0f172a',
+            muted: '#475569',
+            brand: '#2563eb',
+            'brand-dark': '#1d4ed8',
+            surface: '#ffffff',
+            canvas: '#f8fafc'
+          },
+          boxShadow: {
+            card: '0 12px 35px rgba(15, 23, 42, 0.08)'
           }
         }
       }
-    </script>
-    <style>
-        /* Custom scrollbar for a polished look */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #0d6efd; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #0a58ca; }
+    };
+  </script>
 
-        /* Icon styling */
-        i[data-lucide] { 
-            display: inline-block; 
-            width: 1em; 
-            height: 1em; 
-            stroke-width: 2.5; 
-            vertical-align: middle; 
-        }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { text-rendering: optimizeLegibility; }
+    section { scroll-margin-top: 6.5rem; }
+    .focus-ring:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.35);
+      outline-offset: 3px;
+    }
+    .publication-title { text-wrap: balance; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
-<body class="bg-light-bg text-dark-text font-sans leading-relaxed">
+<body class="bg-canvas text-ink font-sans antialiased">
+  <a href="#main-content" class="focus-ring sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:left-4 focus:top-4 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:shadow-card">
+    Skip to content
+  </a>
 
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <header class="text-center mb-12">
-            <img src="pfp.png" alt="Alejandro Delgado Profile Picture" class="block md:hidden w-32 h-32 rounded-full mx-auto object-cover border-4 border-border-color mb-4">
-            
-            <h1 class="text-5xl md:text-6xl font-bold mb-2">Alejandro Delgado</h1>
-            <p class="text-xl md:text-2xl text-secondary-text">Ph.D. Student & Human-Computer Interaction Researcher</p>
-            
-            <nav class="mt-8">
-                <ul class="flex justify-center space-x-4 md:space-x-6 text-sm uppercase font-semibold text-secondary-text">
-                    <li><a href="#about" class="hover:text-primary transition duration-300">About</a></li>
-                    <li><a href="#publications" class="hover:text-primary transition duration-300">Publications</a></li>
-                    <li><a href="#projects" class="hover:text-primary transition duration-300">Projects</a></li>
-                    <li><a href="#experience" class="hover:text-primary transition duration-300">Experience</a></li>
-                    <li><a href="#contact" class="hover:text-primary transition duration-300">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <a href="#top" class="focus-ring rounded-md text-sm font-extrabold tracking-tight sm:text-base">
+        Alejandro Delgado
+      </a>
 
-        <section id="about" class="mb-12 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">About Me</h2>
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-grow">
-                        <p class="mb-4">
-                            Ph.D. student in Human-Computer Interaction with a focus on Augmented Reality. Experienced in leading end-to-end user research to discover, invent, and build novel user experiences at scale. Passionate about translating foundational research on user interaction models into intuitive and effective mixed-reality applications.
-                        </p>
-                        <h3 class="text-lg font-semibold mb-3 text-primary">Education</h3>
-                        <div class="mb-4">
-                            <p><strong>Ph.D. in Computer Science</strong> - University of South Florida (Expected 2028)</p>
-                            <p class="text-sm text-secondary-text">Research Interests: Human-Computer Interaction, Augmented Reality, User Experience</p>
-                        </div>
-                        <div>
-                            <p><strong>B.S. in Computer Science, Minor in Leadership Studies</strong> - University of South Florida (2019-2023)</p>
-                            <p class="text-sm text-secondary-text">Graduated Cum Laude (GPA: 3.64/4.0)</p>
-                        </div>
-                    </div>
-                    <div class="hidden md:block flex-shrink-0">
-                        <img src="pfp_full.png" alt="Alejandro Delgado" class="h-80 w-auto rounded-lg object-cover shadow-sm">
-                    </div>
-                </div>
-            </div>
-        </section>
+      <button id="menu-button" type="button" class="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-300 text-slate-700 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
+      </button>
 
-        <section id="publications" class="mb-12 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Publications</h2>
-            <div class="bg-white p-6 rounded-lg shadow-sm space-y-4">
-                <div>
-                    <p class="font-semibold">"Because we are human, we use hands": Understanding People's Expectations and Mental Models of Virtual Object Interaction in AR Headsets.</p>
-                    <p class="text-sm text-secondary-text">Delgado, A., et al. (2025). In Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA '25). ACM.</p>
-                    <a href="https://encoderesearchlab.org/wp-content/uploads/2025/03/delgadoetal-chi25.pdf" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline text-sm font-semibold">
-                        View PDF <i data-lucide="external-link" class="w-3 h-3 inline-block"></i>
-                    </a>
-                </div>
-                <div class="border-t border-border-color pt-4">
-                    <p class="font-semibold">"If you are a Star Wars fan, use the force": Exploring Children's Virtual-Object Interaction Preferences in AR Headsets.</p>
-                    <p class="text-sm text-secondary-text">Delgado, A., et al. (2025). Submitted to CHI Conference on Human Factors in Computing Systems (CHI '26). (Under Review)</p>
-                </div>
-                 <div class="border-t border-border-color pt-4">
-                    <p class="font-semibold">Using Open-Ended Elicitation to Explore Adults' Virtual-Object Interaction Preferences in AR Headsets.</p>
-                    <p class="text-sm text-secondary-text">Delgado, A., et al. (2025). Submitted to CHI Conference on Human Factors in Computing Systems (CHI '26). (Under Review)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="mb-12 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Research Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">Elicitation Study of Children's AR Interaction Models</h3>
-                    <p class="text-sm text-secondary-text mb-2">Sept 2024 – Present</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Led an open-ended elicitation study with 20 children (ages 9-12) to investigate their interaction preferences with virtual objects in AR headsets.</li>
-                        <li>Constructed a conceptual model of children's expectations, revealing preferences for whole-body interaction and the use of external objects, in contrast to adult models.</li>
-                        <li>Analyzed 663 interaction proposals using qualitative coding and affinity diagramming, uncovering that children create narratives to contextualize their interactions.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">Elicitation Study of Adult AR Interaction Preferences</h3>
-                    <p class="text-sm text-secondary-text mb-2">Feb 2024 – Dec 2024</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Designed and conducted an elicitation study with 30 adults to discover natural interaction preferences for 17 common virtual object manipulations in AR.</li>
-                        <li>Quantified and analyzed 1,017 interactions, finding that while hand gestures were the primary choice (82%), 52% of secondary choices involved a modality switch (e.g., to voice).</li>
-                        <li>Identified novel interaction paradigms not supported by current commercial headsets, including thinking, air-blowing, and air-drawing.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">Applied AI for Clinical Assessment</h3>
-                    <p class="text-sm text-secondary-text mb-2">Feb 2025 – Present</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Developing a multimodal AI system to analyze speech and gestures, aiming to infer communicative intent in individuals with aphasia.</li>
-                        <li>Engineering a computer vision pipeline with MediaPipe to detect and classify co-speech gestures from the AphasiaBank video dataset.</li>
-                        <li>Integrating a vision-language model (Qwen2.5-VL) to perform multimodal inference and generate annotated transcripts.</li>
-                    </ul>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold mb-1">AR Virtual Agent Study Platform</h3>
-                    <p class="text-sm text-secondary-text mb-2">Oct 2024 – Present</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Built a Unity AR application to investigate children's perceptions of virtual agents during collaborative tasks.</li>
-                        <li>Implemented eye tracking-driven agent behaviors and a headset-tablet communication system for synchronized data collection.</li>
-                        <li>Developed spatial placement algorithms using ARFoundation for automatic agent positioning.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="mb-12 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Experience</h2>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
-                        <div>
-                            <h3 class="text-xl font-semibold text-dark-text">Graduate Research Assistant, HCI</h3>
-                            <p class="text-secondary-text mb-2">
-                                <a href="https://encoderesearchlab.org/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">
-                                    Engaging Computing Design Lab
-                                </a>, USF | Jan 2024 – Present
-                            </p>
-                        </div>
-                        <a href="https://encoderesearchlab.org/" target="_blank" rel="noopener noreferrer" class="md:ml-4 flex-shrink-0 mt-2 md:mt-0 self-center md:self-auto">
-                            <img src="encode_logo.png" alt="EnCoDe Lab Logo" class="h-12 w-auto transition hover:opacity-80">
-                        </a>
-                    </div>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Leading foundational user research to understand interaction models for future Augmented Reality applications.</li>
-                        <li>Conducting mixed-methods user studies (gesture elicitation, affinity diagramming) with diverse populations.</li>
-                        <li>Translating user data into actionable design recommendations for improving AR user experience (UX).</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold text-dark-text">Software Development Intern</h3>
-                    <p class="text-secondary-text mb-2">RSR Group, Inc. (Remote) | Feb 2023 – Jul 2023</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Led a UI/UX overhaul of an internal tool, redesigning interface components to improve usability.</li>
-                        <li>Improved employee decision-making time by 30% through a user-centered redesign process.</li>
-                    </ul>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold text-dark-text">Front End Developer Intern</h3>
-                    <p class="text-secondary-text mb-2">Vimana Telecommunications, Paraguay | Oct 2018 – Aug 2019</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Developed the front-end for a full-stack e-commerce bartering platform.</li>
-                        <li>Designed and implemented key user flows, including registration, product listing, and trade negotiation.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold text-dark-text">Information Technology Intern</h3>
-                    <p class="text-secondary-text mb-2">Entidad Binacional Yacyretá (EBY), Paraguay | Nov 2017 – Feb 2018</p>
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>Developed a workflow automation app using Python to replace a manual, paper-based process.</li>
-                        <li>Provided technical training and support to staff, ensuring smooth adoption of the new tool.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="contact" class="text-center mb-12 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-            <p class="mb-6 text-secondary-text">I'm always open to discussing research, technology, and new opportunities.</p>
-            <div class="flex justify-center space-x-6">
-                <a href="mailto:alejandrodel@usf.edu" class="text-secondary-text hover:text-primary transition duration-300">
-                    <i data-lucide="mail" class="w-6 h-6"></i>
-                </a>
-                <a href="https://linkedin.com/in/alejandrodelgadorios" target="_blank" rel="noopener noreferrer" class="text-secondary-text hover:text-primary transition duration-300">
-                    <i data-lucide="linkedin" class="w-6 h-6"></i>
-                </a>
-                <a href="https://github.com/adelgadorios" target="_blank" rel="noopener noreferrer" class="text-secondary-text hover:text-primary transition duration-300">
-                    <i data-lucide="github" class="w-6 h-6"></i>
-                </a>
-                 <a href="https://scholar.google.com/citations?user=lr4-qTwAAAAJ" target="_blank" rel="noopener noreferrer" class="text-secondary-text hover:text-primary transition duration-300">
-                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
-                </a>
-            </div>
-        </section>
-
-        <footer class="text-center mt-12 pt-6 border-t border-border-color">
-            <p class="text-sm text-secondary-text">&copy; <span id="current-year"></span> Alejandro Delgado. All rights reserved.</p>
-        </footer>
-
+      <nav aria-label="Primary navigation" class="hidden md:block">
+        <ul class="flex items-center gap-6 text-sm font-semibold text-muted">
+          <li><a class="focus-ring rounded hover:text-brand" href="#about">About</a></li>
+          <li><a class="focus-ring rounded hover:text-brand" href="#research">Research</a></li>
+          <li><a class="focus-ring rounded hover:text-brand" href="#publications">Publications</a></li>
+          <li><a class="focus-ring rounded hover:text-brand" href="#experience">Experience</a></li>
+          <li><a class="focus-ring rounded hover:text-brand" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
 
-    <script>
-        lucide.createIcons();
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <nav id="mobile-menu" aria-label="Mobile navigation" class="hidden border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+      <ul class="grid gap-1 text-base font-semibold text-muted">
+        <li><a class="mobile-link focus-ring block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-brand" href="#about">About</a></li>
+        <li><a class="mobile-link focus-ring block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-brand" href="#research">Research</a></li>
+        <li><a class="mobile-link focus-ring block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-brand" href="#publications">Publications</a></li>
+        <li><a class="mobile-link focus-ring block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-brand" href="#experience">Experience</a></li>
+        <li><a class="mobile-link focus-ring block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-brand" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="top" class="border-b border-slate-200 bg-white">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 md:grid-cols-[1fr_auto] lg:px-8 lg:py-24">
+        <div class="max-w-3xl">
+          <p class="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-brand">Human–Computer Interaction · User Research</p>
+          <h1 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">I study how people understand and interact with emerging technology.</h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+            I am a Computer Science Ph.D. researcher at the University of South Florida specializing in mixed-methods user research, augmented reality, and multimodal AI. I lead studies from protocol design and IRB approval through recruitment, analysis, publication, and presentation.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a href="#research" class="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand px-5 py-3 font-bold text-white transition hover:bg-brand-dark">
+              View research <i data-lucide="arrow-down" class="h-4 w-4" aria-hidden="true"></i>
+            </a>
+            <a href="alejandro_delgado_ux_research_resume.pdf" class="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-bold text-ink transition hover:border-brand hover:text-brand" target="_blank" rel="noopener noreferrer">
+              Resume <i data-lucide="file-text" class="h-4 w-4" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:alejandrodel@usf.edu" class="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-4 py-3 font-semibold text-muted hover:text-brand">
+              Email me <i data-lucide="mail" class="h-4 w-4" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="mx-auto w-44 sm:w-52 md:mx-0 md:w-56">
+          <img src="pfp.png" onerror="this.onerror=null;this.src='pfp_full.png';" alt="Portrait of Alejandro Delgado" class="aspect-square w-full rounded-3xl border border-slate-200 object-cover shadow-card">
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <section id="about" aria-labelledby="about-heading">
+        <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.16em] text-brand">About</p>
+            <h2 id="about-heading" class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Research grounded in human behavior</h2>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <p class="text-lg leading-8 text-muted">
+              My work combines qualitative and quantitative methods to uncover people's expectations, mental models, and interaction preferences. I translate those findings into design recommendations and working prototypes for mixed-reality and AI-enabled systems.
+            </p>
+            <dl class="mt-8 grid gap-6 sm:grid-cols-2">
+              <div>
+                <dt class="font-bold">Ph.D. in Computer Science</dt>
+                <dd class="mt-1 text-sm leading-6 text-muted">University of South Florida · Expected 2028</dd>
+              </div>
+              <div>
+                <dt class="font-bold">B.S. in Computer Science</dt>
+                <dd class="mt-1 text-sm leading-6 text-muted">Cum Laude · Leadership Studies minor · GPA 3.64/4.0</dd>
+              </div>
+              <div>
+                <dt class="font-bold">Research methods</dt>
+                <dd class="mt-1 text-sm leading-6 text-muted">Interviews, elicitation studies, behavioral observation, affinity mapping, experimental design, mixed methods</dd>
+              </div>
+              <div>
+                <dt class="font-bold">Technical toolkit</dt>
+                <dd class="mt-1 text-sm leading-6 text-muted">Python, Unity/C#, Magic Leap 2, MediaPipe, statistical analysis, multimodal AI</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" aria-labelledby="research-heading" class="mt-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-brand">Selected research</p>
+          <h2 id="research-heading" class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Studies and systems</h2>
+          <p class="mt-4 text-lg leading-8 text-muted">Projects spanning foundational user research, spatial computing, and multimodal AI.</p>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-7">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <h3 class="text-xl font-bold">Children's AR Interaction Models</h3>
+              <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-brand">CHI 2026</span>
+            </div>
+            <p class="mt-4 leading-7 text-muted">Designed and conducted an open-ended elicitation study with 20 children, then coded 663 interaction proposals to identify intuitive behaviors and inform future AR interaction design.</p>
+            <ul class="mt-5 space-y-2 text-sm leading-6 text-muted">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Qualitative coding and affinity mapping</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Whole-body and external-object interaction findings</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>First-author peer-reviewed publication</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-7">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <h3 class="text-xl font-bold">Adult AR Interaction Preferences</h3>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">N = 30</span>
+            </div>
+            <p class="mt-4 leading-7 text-muted">Led a study of 30 adults across 17 virtual-object manipulations, analyzing 1,017 proposals to uncover natural interaction preferences and modality-switching behavior.</p>
+            <ul class="mt-5 space-y-2 text-sm leading-6 text-muted">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Affinity diagramming and statistical analysis</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>1,017 analyzed interaction proposals</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Novel techniques beyond current headset capabilities</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-7">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <h3 class="text-xl font-bold">AR Virtual Agent Study Platform</h3>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">Unity · Magic Leap 2</span>
+            </div>
+            <p class="mt-4 leading-7 text-muted">Built an AR research platform for studying children's perceptions of virtual agents during collaborative tasks, including eye-tracking behavior and synchronized headset–tablet data collection.</p>
+            <ul class="mt-5 space-y-2 text-sm leading-6 text-muted">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Unity/C# and ARFoundation development</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Eye-tracking-driven agent behavior</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>HTTP-based multi-device synchronization</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-7">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <h3 class="text-xl font-bold">Multimodal AI for Clinical Assessment</h3>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">AI · Computer Vision</span>
+            </div>
+            <p class="mt-4 leading-7 text-muted">Developing a multimodal system that combines speech, gesture, and video to support analysis of communicative intent in people with aphasia.</p>
+            <ul class="mt-5 space-y-2 text-sm leading-6 text-muted">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>MediaPipe gesture extraction</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Vision-language model integration</span></li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-1 h-4 w-4 shrink-0 text-brand" aria-hidden="true"></i><span>Audio, video, and text synthesis</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="publications" aria-labelledby="publications-heading" class="mt-20">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.16em] text-brand">Publications</p>
+            <h2 id="publications-heading" class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Selected peer-reviewed work</h2>
+          </div>
+          <a href="https://scholar.google.com/citations?user=lr4-qTwAAAAJ" target="_blank" rel="noopener noreferrer" class="focus-ring inline-flex items-center gap-2 self-start rounded-lg font-bold text-brand hover:text-brand-dark">
+            Google Scholar <i data-lucide="external-link" class="h-4 w-4" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="mt-8 divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
+          <article class="p-6 sm:p-8">
+            <p class="text-sm font-bold text-brand">CHI 2026 · First author</p>
+            <h3 class="publication-title mt-2 text-xl font-bold leading-8">“If you are a Star Wars fan, use the force”: Exploring Children's Virtual-Object Interaction Preferences in AR Headsets</h3>
+            <p class="mt-3 text-sm leading-6 text-muted">Alejandro Delgado, Md Mehedi Hasan Jibon, Hetvi Shah, Fareeza Rahman, Anzhelika Kurnikova, and Julia Woodward.</p>
+          </article>
+
+          <article class="p-6 sm:p-8">
+            <p class="text-sm font-bold text-brand">CHI EA 2025 · First author</p>
+            <h3 class="publication-title mt-2 text-xl font-bold leading-8">“Because we are human, we use hands”: Understanding People's Expectations and Mental Models of Virtual Object Interaction in AR Headsets</h3>
+            <p class="mt-3 text-sm leading-6 text-muted">Alejandro Delgado, Hetvi Shah, Md Mehedi Hasan Jibon, et al.</p>
+            <a href="https://encoderesearchlab.org/wp-content/uploads/2025/03/delgadoetal-chi25.pdf" target="_blank" rel="noopener noreferrer" class="focus-ring mt-4 inline-flex items-center gap-2 rounded font-bold text-brand hover:text-brand-dark">
+              View publication <i data-lucide="external-link" class="h-4 w-4" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="p-6 sm:p-8">
+            <p class="text-sm font-bold text-brand">AVI 2026 · First author</p>
+            <h3 class="publication-title mt-2 text-xl font-bold leading-8">Using Open-Ended Elicitation to Explore Adults' Virtual-Object Interaction Preferences in AR Headsets</h3>
+            <p class="mt-3 text-sm leading-6 text-muted">Alejandro Delgado et al.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-heading" class="mt-20">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-brand">Experience</p>
+          <h2 id="experience-heading" class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Research and product development</h2>
+        </div>
+
+        <div class="mt-8 space-y-5">
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 class="text-xl font-bold">Graduate Research Assistant</h3>
+                <p class="mt-1 font-semibold text-muted">Engaging Computing Design Research Lab · University of South Florida</p>
+              </div>
+              <p class="shrink-0 text-sm font-semibold text-muted">Jan 2024 – Present</p>
+            </div>
+            <ul class="mt-5 grid gap-3 text-sm leading-6 text-muted md:grid-cols-3">
+              <li class="rounded-xl bg-slate-50 p-4">Lead mixed-methods studies using interviews, elicitation, observation, qualitative coding, and statistical analysis.</li>
+              <li class="rounded-xl bg-slate-50 p-4">Own the full research lifecycle from conception and IRB through recruitment, analysis, publication, and presentation.</li>
+              <li class="rounded-xl bg-slate-50 p-4">Translate evidence into actionable design recommendations for AR interfaces and research prototypes.</li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 class="text-xl font-bold">Software Development Intern</h3>
+                <p class="mt-1 font-semibold text-muted">RSR Group Inc. · Remote</p>
+              </div>
+              <p class="shrink-0 text-sm font-semibold text-muted">Feb 2023 – Jul 2023</p>
+            </div>
+            <p class="mt-5 leading-7 text-muted">Investigated usability failures in legacy applications, implemented user-facing interfaces and reports, and validated functionality through unit testing and stakeholder requirements.</p>
+          </article>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+              <h3 class="text-lg font-bold">Front End Developer Intern</h3>
+              <p class="mt-1 text-sm font-semibold text-muted">Vimana Telecommunications · Oct 2018 – Aug 2019</p>
+              <p class="mt-4 text-sm leading-6 text-muted">Built user dashboards, product views, and order-management interfaces while iterating on features within an Agile product team.</p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+              <h3 class="text-lg font-bold">Information Technology Intern</h3>
+              <p class="mt-1 text-sm font-semibold text-muted">Entidad Binacional Yacyretá · Nov 2017 – Feb 2018</p>
+              <p class="mt-4 text-sm leading-6 text-muted">Created a Python workflow application to replace a manual paper process and trained staff to adopt the new tool.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-heading" class="mt-20 rounded-3xl bg-ink px-6 py-10 text-white sm:px-10 sm:py-12">
+        <div class="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.16em] text-blue-300">Contact</p>
+            <h2 id="contact-heading" class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Let's discuss research, design, or emerging technology.</h2>
+            <p class="mt-4 max-w-2xl leading-7 text-slate-300">I am interested in User Research, UX Research, HCI research, and research engineering opportunities.</p>
+          </div>
+          <a href="mailto:alejandrodel@usf.edu" class="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 font-bold text-ink hover:bg-slate-100">
+            Get in touch <i data-lucide="arrow-up-right" class="h-4 w-4" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 border-t border-slate-700 pt-6 text-sm font-semibold text-slate-300">
+          <a class="focus-ring rounded hover:text-white" href="https://www.linkedin.com/in/alejandrodelgadorios" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="focus-ring rounded hover:text-white" href="https://github.com/adelgadorios" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="focus-ring rounded hover:text-white" href="https://scholar.google.com/citations?user=lr4-qTwAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a class="focus-ring rounded hover:text-white" href="https://encoderesearchlab.org/" target="_blank" rel="noopener noreferrer">EnCoDe Lab</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-7 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <p>&copy; <span id="current-year"></span> Alejandro Delgado.</p>
+      <p>Designed for accessibility and mobile responsiveness.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+
+      const menuButton = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      const closeMenu = () => {
+        mobileMenu.classList.add('hidden');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+        menuButton.innerHTML = '<i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>';
+        if (window.lucide) lucide.createIcons();
+      };
+
+      menuButton.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          closeMenu();
+        } else {
+          mobileMenu.classList.remove('hidden');
+          menuButton.setAttribute('aria-expanded', 'true');
+          menuButton.setAttribute('aria-label', 'Close navigation menu');
+          menuButton.innerHTML = '<i data-lucide="x" class="h-5 w-5" aria-hidden="true"></i>';
+          if (window.lucide) lucide.createIcons();
+        }
+      });
+
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
